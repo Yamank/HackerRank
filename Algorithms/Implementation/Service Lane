@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+        int test=0, len=0, i=0, j=0, big=0;
+        String fir;
+        DataInputStream in=new DataInputStream(System.in);
+        fir=in.readLine();
+        String fa[]=fir.split(" ");
+        len=Integer.parseInt(fa[0]);
+        test=Integer.parseInt(fa[1]);
+        int width[]=new int[len];
+        int start[]=new int[test];
+        int end[]=new int[test];
+        fir=in.readLine();
+        String ta[]=fir.split(" ");
+        for(i=0;i<len;i++)
+            {
+            width[i]=Integer.parseInt(ta[i]);
+            }
+        for(i=0;i<test;i++)
+            {
+            fir=in.readLine();
+            fa=fir.split(" ");
+            start[i]=Integer.parseInt(fa[0]);
+            end[i]=Integer.parseInt(fa[1]);
+            }
+        for(j=0;j<test;j++)
+            {
+            big=width[start[j]];
+            for(i=start[j];i<=end[j];i++)
+                {
+                if(big>width[i])
+                    big=width[i];
+                }
+            System.out.println(big);
+            }
+    }
+}
