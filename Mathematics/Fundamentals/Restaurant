@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws NumberFormatException,IOException 
+	{
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int T = Integer.parseInt(br.readLine());
+
+		while (T > 0) 
+		{
+
+			String line = br.readLine();
+
+			int l = Integer.parseInt(line.split(" ")[0]);
+
+			int b = Integer.parseInt(line.split(" ")[1]);
+
+			restaurant(l, b);
+
+			T--;
+
+		}
+
+		br.close();
+
+	}
+
+
+	public static void restaurant(int l, int b) 
+	{
+
+		System.out.println(l / gcd(l, b) * b / gcd(l, b));
+
+	}
+
+
+	public static int gcd(int a, int b) 
+	{
+
+		int c;
+
+		while (a != 0) 
+		{
+
+			c = a;
+
+			a = b % a;
+
+			b = c;
+
+		}
+
+		return b;
+
+	}
+
+}
