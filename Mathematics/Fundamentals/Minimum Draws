@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+		int T = scan.nextInt();
+
+		for (int i = 0; i < T; i++) 
+		{
+
+			int N = scan.nextInt();
+
+			int minimumDraws = N + 1;
+
+			System.out.println(minimumDraws);
+
+		}
+
+		scan.close();
+
+	}
+
+}
