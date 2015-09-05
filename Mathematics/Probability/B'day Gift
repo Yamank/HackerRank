@@ -1,0 +1,80 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    
+private static int MAX = Integer.MIN_VALUE;
+
+	public static void main(String[] args) throws NumberFormatException,IOException 
+	{
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int N = Integer.parseInt(br.readLine());
+
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+		for (int i = 0; i < N; i++) 
+		{
+
+			int k = Integer.parseInt(br.readLine());
+
+			if (map.containsKey(k)) 
+			{
+
+				map.put(k, map.get(k) + 1);
+
+			}
+			else
+			{
+
+				map.put(k, 1);
+
+			}
+
+			if (k > MAX) 
+			{
+
+				MAX = k;
+
+			}
+
+		}
+
+		birthdayGift(map);
+
+	}
+
+
+	private static void birthdayGift(Map<Integer, Integer> map) 
+	{
+
+		double result = 0;
+
+		int i = 0;
+
+		while (i <= MAX) 
+		{
+
+			if (map.containsKey(i)) 
+			{
+
+				double val = map.get(i) * i * (0.5);
+
+				result+=val;
+
+			}
+
+			i++;
+
+		}
+
+		System.out.println(String.format("%.1f", result));
+
+	}
+
+}
