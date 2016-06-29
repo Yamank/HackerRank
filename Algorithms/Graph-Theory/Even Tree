@@ -16,7 +16,7 @@ public class Solution
 		int[][] edges = new int[M][2];
 
 		for (int i = 0; i < M; i++) 
-        {
+        	{
 			String l = br.readLine();
 			int a = Integer.parseInt(l.split(" ")[0]);
 			int b = Integer.parseInt(l.split(" ")[1]);
@@ -24,30 +24,30 @@ public class Solution
 			edges[i][1] = a;
 		}
 		Arrays.sort(edges, new Comparator<int[]>() 
-                    {
+                {
             			@Override
-			             public int compare(int[] int1, int[] int2) 
-                         {
-            				Integer v1 = int1[0];
+			        public int compare(int[] int1, int[] int2) 
+                         	{
+                         		Integer v1 = int1[0];
             				Integer v2 = int2[0];
             				return v1.compareTo(v2);
-			             }
-            		});
+			 	}
+            	});
 		int[] count = new int[N];
 		count[0] = N;
 		for (int i = 1; i < N; i++) 
-        {
+        	{
 			List<Integer> list = new ArrayList<Integer>();
 			list.add(i + 1);
 			int j = 0;
 			while (j < list.size()) 
-            {
+            		{
 				for (int k = j; k < M; k++) 
-                {
+                		{
 					if (edges[k][0] == list.get(j)) 
-                    {
+                			{
 						if (!list.contains(edges[k][1])) 
-                        {
+                        			{
 							list.add(edges[k][1]);
 						}
 					}
@@ -58,9 +58,9 @@ public class Solution
 		}
 		int remove = 0;
 		for (int c : count) 
-        {
+        	{
 			if (c % 2 == 0)
-				remove++;
+			remove++;
 		}
 		System.out.println(remove - 1);
 
